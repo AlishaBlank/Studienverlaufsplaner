@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Studienverlaufsplaner"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="400">
+        Title="Studienverlaufsplaner" Height="650" Width="400">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
