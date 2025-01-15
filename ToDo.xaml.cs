@@ -38,7 +38,7 @@ namespace Studienverlaufsplaner
 
         private void ToDosHinzufuegen(object sender, RoutedEventArgs e)
         {
-            var dialog = new ToDoEingabeDialog("Neue Aufgabe Hinzufügen:");
+            var dialog = new ToDoEingabeDialog("Neue Aufgabe hinzufügen:");
             if (dialog.ShowDialog() == true)
             {
                 ToDoTask.Add(new ToDoItem { Task = dialog.InputText, IsCompleted = false });
@@ -54,7 +54,8 @@ namespace Studienverlaufsplaner
             }
             else
             {
-                MessageBox.Show("Bitte wähle eine Aufgabe aus, die gelöscht werden soll.", "Hinweis", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Bitte wähle eine Aufgabe aus, die gelöscht werden soll.", "Keine Aufgabe ausgewählt",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -72,7 +73,8 @@ namespace Studienverlaufsplaner
             }
             else
             {
-                MessageBox.Show("Bitte wähle eine Aufgabe aus, die bearbeitet werden soll.", "Hinweis", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Bitte wähle eine Aufgabe aus, die bearbeitet werden soll.", "Keine Aufgabe ausgewählt", 
+                                MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

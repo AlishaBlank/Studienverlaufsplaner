@@ -55,7 +55,13 @@ namespace Studienverlaufsplaner
                 UpdateECTSSumme();
                 UpdateDurchschnitt();
             }
+            else
+            {
+                MessageBox.Show("Bitte wählen Sie einen Eintrag aus, den Sie löschen möchten.", "Kein Eintrag ausgewählt",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
+
 
         private void NoteBearbeiten(object sender, RoutedEventArgs e)
         {
@@ -71,6 +77,11 @@ namespace Studienverlaufsplaner
                     UpdateECTSSumme();
                     UpdateDurchschnitt();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Bitte wählen Sie einen Eintrag aus, den Sie bearbeiten möchten.", "Kein Eintrag ausgewählt",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
