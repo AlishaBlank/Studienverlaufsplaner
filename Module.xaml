@@ -1,0 +1,43 @@
+﻿<Page x:Class="Studienverlaufsplaner.Module"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Studienverlaufsplaner"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="400"
+      Title="Module">
+
+    <Grid>
+        <StackPanel>
+            <Label Content="Dies sind die Module!" FontSize="20" />
+
+            <StackPanel>
+                <Label Content="Notenverwaltung" FontSize="16"  FontWeight="Bold" Margin="0,0,0,10"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Hinzufügen" Click="NoteHinzufuegen"/>
+                    <Button Content="Löschen" Click="NoteLoeschen"/>
+                    <Button Content="Bearbeiten" Click="NoteBearbeiten"/>
+                </StackPanel>
+
+                <ListView x:Name="NotenListe" ItemsSource="{Binding NotenEintragung}" Margin="10,10,10,10" Height="300">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Fach" DisplayMemberBinding="{Binding Fach}" Width="180" />
+                            <GridViewColumn Header="Note" DisplayMemberBinding="{Binding Note}" Width="90" />
+                            <GridViewColumn Header="ECTS" DisplayMemberBinding="{Binding ECTS}" Width="90"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Summe ECTS: 0" x:Name="SummeECTS" FontSize="16" Margin="10"/>
+                    <Label Content="Notendurchschnitt: 0.0" x:Name="NotenDurchschnittLabel" FontSize="16" Margin="10"/>
+                </StackPanel>
+
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,30 @@
+﻿<Window x:Class="Studienverlaufsplaner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Studienverlaufsplaner"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="400">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="MediumPurple" Offset="0" />
+                <GradientStop Color="Purple" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Background="AntiqueWhite" >
+                <Button Content="Module" Click="NavigateToModule" />
+                <Button Content="ToDo" Click="NavigateToToDo" />
+            </StackPanel>
+
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <Button Content="Zurück" Click="NavigateZurück" />
+            </StackPanel>
+
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        </DockPanel>
+    </Grid>
+</Window>

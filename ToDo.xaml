@@ -1,0 +1,49 @@
+﻿<Page x:Class="Studienverlaufsplaner.ToDo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Studienverlaufsplaner"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="400"
+      Title="ToDo">
+
+    <Grid>
+        <StackPanel>
+            <Label Content="Dies sind die ToDo´s!" FontSize="20"/>
+
+            <WrapPanel Orientation="Horizontal" >
+                <Button Content="Hinzufügen" Click="ToDosHinzufuegen"/>
+                <Button Content="Löschen" Click="ToDosLoeschen"/>
+                <Button Content="Bearbeiten" Click="ToDosBearbeiten"/>
+            </WrapPanel>
+
+            <!-- ToDo-Liste -->
+            <ListBox x:Name="ToDoList" Height="300" Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsCompleted}" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Task}" Margin="5,0,0,0">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextDecorations" Value="None"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsCompleted}" Value="True">
+                                                <Setter Property="TextDecorations" Value="Strikethrough"/>
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+
+
+        </StackPanel>
+    </Grid>
+</Page>
