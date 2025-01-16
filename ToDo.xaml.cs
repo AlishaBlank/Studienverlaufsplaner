@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +22,42 @@ namespace Studienverlaufsplaner
     /// </summary>
     public partial class ToDo : Page
     {
-        public class ToDoItem
+        public class ToDoItem : INotifyPropertyChanged
         {
-            public string Task { get; set; }
-            public bool IsCompleted { get; set; }
+            private string task;
+            public string Task
+            {
+                get => task;
+                set
+                {
+                    if (task != value)
+                    {
+                        task = value;
+                        OnPropertyChanged(nameof(Task));
+                    }
+                }
+            }
+
+            private bool isCompleted;
+            public bool IsCompleted
+            {
+                get => isCompleted;
+                set
+                {
+                    if (isCompleted != value)
+                    {
+                        isCompleted = value;
+                        OnPropertyChanged(nameof(IsCompleted));
+                    }
+                }
+            }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            protected void OnPropertyChanged(string propertyName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
 
         public ObservableCollection<ToDoItem> ToDoTask { get; set; }
@@ -68,12 +101,11 @@ namespace Studienverlaufsplaner
                 if (dialog.ShowDialog() == true)
                 {
                     selectedItem.Task = dialog.InputText;
-                    ToDoList.Items.Refresh();
                 }
             }
             else
             {
-                MessageBox.Show("Bitte wähle eine Aufgabe aus, die bearbeitet werden soll.", "Keine Aufgabe ausgewählt", 
+                MessageBox.Show("Bitte wähle eine Aufgabe aus, die bearbeitet werden soll.", "Keine Aufgabe ausgewählt",
                                 MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
