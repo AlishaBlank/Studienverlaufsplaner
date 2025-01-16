@@ -73,7 +73,7 @@ namespace Studienverlaufsplaner
                     selectedEntry.Fach = dialog.Fach;
                     selectedEntry.Note = dialog.Note;
                     selectedEntry.ECTS = dialog.ECTS;
-                    NotenListe.Items.Refresh();
+                
                     UpdateECTSSumme();
                     UpdateDurchschnitt();
                 }
