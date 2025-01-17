@@ -19,13 +19,13 @@ namespace Studienverlaufsplaner
     /// </summary>
     public partial class ToDoEingabeDialog : Window
     {
-        public string InputText => TextInput.Text;
+        public string InputText => UserEingabe.Text;
         public ToDoEingabeDialog(string prompt, string defaultText = "")
         {
             InitializeComponent();
             DialogPrompt.Text = prompt;
-            TextInput.Text = defaultText;
-            TextInput.Focus();
+            UserEingabe.Text = defaultText;
+            UserEingabe.Focus();
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)

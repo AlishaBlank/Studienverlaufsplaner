@@ -9,7 +9,7 @@ namespace Studienverlaufsplaner
 {
     public class Noteneintragung : INotifyPropertyChanged
     {
-        private string fach;
+        private string fach = string.Empty; //wegen nullable standardwert geben
         public string Fach
         {
             get => fach;
@@ -51,7 +51,7 @@ namespace Studienverlaufsplaner
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)
         {

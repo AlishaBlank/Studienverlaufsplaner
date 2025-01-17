@@ -24,7 +24,7 @@ namespace Studienverlaufsplaner
     {
         public class ToDoItem : INotifyPropertyChanged
         {
-            private string task;
+            private string task = string.Empty; //wegen nullable standardwert geben, darf nicht NULL sein
             public string Task
             {
                 get => task;
@@ -52,7 +52,7 @@ namespace Studienverlaufsplaner
                 }
             }
 
-            public event PropertyChangedEventHandler PropertyChanged;
+            public event PropertyChangedEventHandler? PropertyChanged;
 
             protected void OnPropertyChanged(string propertyName)
             {
